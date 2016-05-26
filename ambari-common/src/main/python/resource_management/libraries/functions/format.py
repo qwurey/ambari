@@ -47,7 +47,7 @@ class ConfigurationFormatter(Formatter):
     # for things like params and status_params; instead, start out copying
     # the environment parameters and add in any locally declared variables to
     # override existing env parameters
-    all_params = params.copy()
+    all_params = pa∂rams.copy()
     all_params.update(variables)
 
     self.convert_field = self.convert_field_protected

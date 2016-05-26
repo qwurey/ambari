@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration supports_final="true">
+
+    <property>
+        <name>postgresql.user</name>
+        <value>postgres</value>
+		<property-type>USER</property-type>
+        <description>This is user to exe init db role</description>
+		<final>true</final>
+    </property>
+    <property>
+        <name>postgresql.superuser</name>
+        <value>postgres</value>
+        <description>create a db user (spuer) for postgresql</description>
+    </property>
+    <property>
+        <name>superuser.passwd</name>
+        <value>postgres</value>
+        <description>setting passwd for db user(super)</description>
+    </property>
+
+    <property>
+        <name>postgresql.install.path</name>
+        <value>/data/postgre/data</value>
+        <description>This is the install path (data dir)</description>
+    </property>
+	
+	<property>
+        <name>postgresql.log.path</name>
+        <value>/data/postgre/log</value>
+        <description>This is the log path(log dir)</description>
+    </property>
+	
+
+</configuration>

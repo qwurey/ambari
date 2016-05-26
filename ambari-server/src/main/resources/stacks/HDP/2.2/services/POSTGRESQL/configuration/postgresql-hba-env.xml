@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration supports_final="true">
+
+    <property>
+        <name>postgresql.hba.local</name>
+        <value>local    all        all                           trust</value>
+        <description>This is trust conncet info for local</description>
+    </property>
+    <property>
+        <name>postgresql.hba.ipv4</name>
+        <value>host    all         all         0.0.0.0/0          trust</value>
+        <description>this is trust conncet info for ipv4(if setting md5 ,then need password when login)</description>
+    </property>
+
+    <property>
+        <name>postgresql.hba.ipv6</name>
+        <value>host    all         all         ::1/128               trust</value>
+        <description>This is the port</description>
+    </property>
+
+</configuration>

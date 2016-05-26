@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<metainfo>
+<schemaVersion>2.0</schemaVersion>
+<services>
+ 	<service>
+ 		<name>QW</name>
+ 		<displayName>QW</displayName>
+ 		<comment>My custom service</comment>
+ 		<version>1.0</version>
+		
+ 		<components>
+ 			<component>
+ 				<name>MYMASTER</name>
+				<displayName>My Master</displayName>
+				<category>MASTER</category>
+				<cardinality>1</cardinality>
+				<commandScript>
+	 				<script>scripts/master.py</script>
+	 				<scriptType>PYTHON</scriptType>
+	 				<timeout>5000</timeout>
+				</commandScript>
+				<customCommands>
+					<customCommand>
+						<name>GetMem</name>
+						<commandScript>
+							<script>scripts/master.py</script>
+							<scriptType>PYTHON</scriptType>
+							<timeout>600</timeout>
+						</commandScript>
+					</customCommand>
+				</customCommands>
+ 			</component>
+			<component>
+				<name>MYSALVE</name>
+				<displayName>My Slave</displayName>
+				<category>SLAVE</category>
+				<cardinality>1+</cardinality>
+				<commandScript>
+			 		<script>scripts/slave.py</script>
+			 		<scriptType>PYTHON</scriptType>
+			 		<timeout>5000</timeout>
+			 	</commandScript>
+				<customCommands>
+					<customCommand>
+						<name>iostat</name>
+						<commandScript>
+							<script>scripts/slave.py</script>
+							<scriptType>PYTHON</scriptType>
+							<timeout>600</timeout>
+						</commandScript>
+					</customCommand>
+				</customCommands>
+			</component>
+ 		</components>
+
+		<commandScript>
+			<script>scripts/service_check.py</script>
+			<scriptType>PYTHON</scriptType>
+			<timeout>300</timeout>
+		</commandScript>
+
+		<osSpecifics>
+			<osSpecific>
+				<osFamily>any</osFamily>
+			</osSpecific>
+		</osSpecifics>
+
+		<configuration-dependencies>
+			<config-type>qw-env</config-type>
+			<config-type>qw-site</config-type>
+		</configuration-dependencies>
+
+ 	</service>
+</services>
+</metainfo>

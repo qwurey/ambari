@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration supports_final="true">
+
+    <property>
+        <name>postgresql.postgre.port</name>
+        <value>5432</value>
+        <description>setting postgresql default port</description>
+    </property>
+    <property>
+        <name>postgresql.postgre.max_connections</name>
+        <value>100</value>
+        <description>This is define max connections</description>
+    </property>
+    <property>
+        <name>postgresql.postgre.shared_buffers</name>
+        <value>32</value>
+        <description>this is define shared buffers</description>
+    </property>
+    <property>
+        <name>postgresql.postgre.listen_addresses</name>
+        <value>*</value>
+        <description>the server is to listen for connections from client applications</description>
+    </property>
+
+</configuration>

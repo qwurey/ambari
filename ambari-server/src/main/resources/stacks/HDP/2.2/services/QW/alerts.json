@@ -1,0 +1,61 @@
+{
+  "QW": {
+    "service": [],
+    "QW_MASTER": [
+      {
+        "name": "qw master alert one",
+        "label": "QW Master Alert One",
+        "description": "This host-level alert is triggered if the QW Master process cannot be determined to be up and listening on the network.",
+        "interval": 1,
+        "scope": "ANY",
+        "enabled": true,
+        "source": {
+          "type": "SCRIPT",
+          "path": "HDP/2.2/services/QW/package/alerts/alert_qw_master_status.py"
+        }
+      }
+    ],
+    "QW_MASTER_PORT": [
+      {
+        "name": "qw master port alert",
+        "label": "QW Master PORT Alert",
+        "description": "Port is OK or not",
+        "interval": 1,
+        "scope": "ANY",
+        "enabled": true,
+        "source": {
+          "type": "PORT",
+          "uri": "{{qw.server.web.url:58888}}",
+          "default_port": 58888,
+          "reporting": {
+            "ok": {
+              "text": "TCP OK - {0:.3f}s response on port {1}"
+            },
+            "warning": {
+              "text": "TCP OK -{0:.3f}s response on port {1}",
+              "value": 1.5
+            },
+            "critical": {
+              "text": "Connection failed:{0} to {1}:{2}",
+              "value": 5.0
+            }
+          }
+        }
+      }
+    ],
+    "QW_SALVE": [
+      {
+        "name": "qw slave alert one",
+        "label": "QW Slave Alert One",
+        "description": "This host-level alert is triggered if the QW Slave process cannot be determined to be up and listening on the network.",
+        "interval": 10,
+        "scope": "ANY",
+        "enabled": true,
+        "source": {
+          "type": "SCRIPT",
+          "path": "HDP/2.2/services/QW/package/alerts/alert_qw_slave_status.py"
+        }
+      }
+    ]
+  }
+}
